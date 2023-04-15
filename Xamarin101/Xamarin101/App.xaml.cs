@@ -1,18 +1,23 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin101.Services;
+using Xamarin101.Views;
 
 namespace Xamarin101
 {
     public partial class App : Application
     {
-        public App()
+        public IFacebookLoginService FacebookLoginService { get; private set; }
+
+        public App(IFacebookLoginService facebookLoginService)
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
-        }
+            FacebookLoginService = facebookLoginService;
 
+            MainPage = new XFFacebookExamplePage();
+        }
         protected override void OnStart()
         {
         }
